@@ -211,9 +211,13 @@ Destroy(gameObject);
 ## Files included (CombinedComponents)
 
 MainCharacterController.cs — player movement, jump, attack hitbox, knockback on enemy trigger
+
 FollowCam.cs — camera follow target x/y
+
 Parallax.cs — looping parallax background with 3 tiles
+
 ExpCollectable.cs — homing EXP pickup + destroy on trigger
+
 PlayerStats.cs — EXP curve + leveling + UI sliders + level-up icon fade
 
 
