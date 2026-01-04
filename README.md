@@ -190,33 +190,30 @@ Recommended values:
   - Adjust exp gain per orb to have a variance in scene
   - Place them around the level at different positions
 
+4. Connect EXP gain to PlayerStats
 
-#### Connect EXP gain to PlayerStats 
-In `ExpCollectable.OnTriggerEnter2D`, add EXP to the player before destroying.
+- In `ExpCollectable.OnTriggerEnter2D`, add EXP to the player before destroying.
 Replace the commented line with:
 
 other.GetComponent<PlayerStats>().currentExp += expValue;
 Destroy(gameObject);
 
-#### Resize one long ground collider 
+---
 
-Select your ground GameObject with a BoxCollider2D
+### G) Resize one long ground collider 
 
-Increase the collider Size.x
+1. Select your ground GameObject with a BoxCollider2D
 
-Expand the ground sprite/visuals to match (or use a tiled sprite)
+2. Increase the collider Size.x
 
+---
 
-#### Files included (CombinedComponents)
+## Files included (CombinedComponents)
 
 MainCharacterController.cs — player movement, jump, attack hitbox, knockback on enemy trigger
-
 FollowCam.cs — camera follow target x/y
-
 Parallax.cs — looping parallax background with 3 tiles
-
 ExpCollectable.cs — homing EXP pickup + destroy on trigger
-
 PlayerStats.cs — EXP curve + leveling + UI sliders + level-up icon fade
 
 
