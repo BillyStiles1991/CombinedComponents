@@ -1,6 +1,6 @@
-# CombinedComponents
-
 # CombinedComponents — Unity 2D Side-Scroller Starter (Player + Camera + Parallax + EXP + Stats UI)
+
+# Unity Scripts and Unity inspector Information
 
 ## 1) Overview 
 This Unity project is a 2D side-scroller foundation that includes:
