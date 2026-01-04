@@ -108,7 +108,7 @@ Create/Select `Player` and add:
   - Add `Collider2D` (Is Trigger = true)
   - Disable the object in Inspector by default (unchecked)
   - Drag into `attackHitbox`
-  - CameraTracker (Transform) (required)
+- CameraTracker (Transform) (required)
   - Create an empty child object on Player called CameraTracker
   - Position it at ahead of the player and slightly above(adjust to your desired tracking          location).
 - `spawnPoint`:
@@ -116,8 +116,8 @@ Create/Select `Player` and add:
 
 #### Configure `PlayerStats` fields (UI + initial values)
 Set initial values (example):
-- `maxHealth = 100`, `currentHealth = 100`
-- `maxMagic = 25`, `currentMagic = 25`
+- `maxHealth = 20`, `currentHealth = 20`
+- `maxMagic = 20`, `currentMagic = 20`
 - `currentExp = 0`
 - `level = 1` (serialized private)
 - `currentStatPoints = 0`
@@ -152,14 +152,13 @@ In a Canvas:
 2. Attach `FollowCam.cs`
 3. Drag Player Transform into `target`
 4. (Typical 2D) Ensure camera Z stays at something like `-10`
-   - This script preserves Z by only changing x/y
 
 ---
 
 ### E) Parallax setup (Parallax)
-1. Create empty parent object (e.g., `Parallax_Background`)
-2. Attach `Parallax.cs`
-3. Create **3 child objects** under it:
+1. Create empty parent object(s) (e.g., Parallax_Background, Parallax_Foreground, Trees, etc. )
+2. Attach `Parallax.cs` to any parent
+3. Create **3 child objects** under any parent:
    - `BG_0`, `BG_1`, `BG_2`
 4. Give each child a SpriteRenderer with your background sprite
 5. Position them side-by-side on X so they tile seamlessly
@@ -185,10 +184,30 @@ Recommended values:
 - `attractionRange = 5`
 - `expValue = 1` (adjust per prefab)
 
+- Create multiple EXP orb prefabs 
+  - Duplicate the prefab in Project window:
+  - Place multiple orb instances in the scene
+  - Adjust exp gain per orb to have a variance in scene
+  - Place them around the level at different positions
+
+
 #### Connect EXP gain to PlayerStats (recommended)
 In `ExpCollectable.OnTriggerEnter2D`, add EXP to the player before destroying.
 Replace the commented line with:
 
-```csharp
 other.GetComponent<PlayerStats>().currentExp += expValue;
 Destroy(gameObject);
+
+##### Resize one long ground collider (good for flat levels)
+
+Select your ground GameObject with a BoxCollider2D
+
+Increase the collider Size.x
+
+Expand the ground sprite/visuals to match (or use a tiled sprite)
+
+
+
+
+
+
